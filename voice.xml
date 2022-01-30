@@ -1,8 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Response>
-<head/>
-<Say voice="alice">How does a bastard, orphan, son of a whore and a
-Scotsman, dropped in the middle of a forgotten
-Spot in the Caribbean by providence, impoverished, in squalor
-Grow up to be a hero and a scholar?</Say>
+<Say>This John Doe calling. I am in need of emergency services right now. </Say>
 <Play>http://demo.twilio.com/docs/classic.mp3</Play>
 </Response>

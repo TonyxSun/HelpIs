@@ -3,6 +3,7 @@ const menuItems = document.getElementById('menuitems');
 const mainButton = document.querySelector('#menu');
 const friendButton = document.querySelector('.fa-user-friends')
 const infopane = document.querySelector('#info')
+const loading = document.getElementById("loading")
 
 mainButton.addEventListener('click', call911);
 friendButton.addEventListener('click', call911);
@@ -25,7 +26,7 @@ function call911(e) {
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
     var urlencoded = new URLSearchParams();
-    urlencoded.append("Url", "http://demo.twilio.com/docs/voice.xml");
+    urlencoded.append('Url', 'https://raw.githubusercontent.com/TonyxSun/mapbox/master/voice.xml');
     urlencoded.append("To", "+16812990111");
     urlencoded.append("From", "+12264077191");
 
@@ -40,30 +41,39 @@ function call911(e) {
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
-    getRoute([-76.48009,44.22988])
+    loading.style.display = 'block';
+
+    setTimeout(function () {
+        loading.style.display = 'none';
+        getRoute([-79.386871, 43.659225]);
+    }, 8000);
 }
 
-// var transformRequest = (url, resourceType) => {
-//     var isMapboxRequest =
-//     url.slice(8, 22) === "api.mapbox.com" ||
-//     url.slice(10, 26) === "tiles.mapbox.com";
-//     return {
-//     url: isMapboxRequest
-//         ? url.replace("?", "?pluginName=sheetMapper&")
-//         : url
-//     };
-// };
 
 mapboxgl.accessToken = 'pk.eyJ1IjoidG9ueXhzdW4iLCJhIjoiY2t6MDJqazd4MTg2ZzJxcDFlM2g4djg0ciJ9.GY5feDZWRZ6GsVKc-N1W_A'; //Mapbox token 
 var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mapbox/streets-v11', // style: https://docs.mapbox.com/api/maps/#styles
     center: [-76.49500, 44.22500], // starting position [lng, lat]
-    zoom: 13,// starting zoom
+    zoom: 14,// starting zoom
     // transformRequest: transformRequest
 });
 
-const start = [-76.49500, 44.22500];
+// Add geolocate control to the map.
+var geolocate = new mapboxgl.GeolocateControl();
+
+map.addControl(geolocate);
+let lon =0;
+let lat =0;
+let position = geolocate.on('geolocate', function(e) {
+      var lon = e.coords.longitude;
+      var lat = e.coords.latitude;
+      start = [lon, lat]
+});
+
+
+
+let start = [-76.49500, 44.22500];
 // $(document).ready(function () {
 //     $.ajax({
 //     type: "GET",
@@ -149,7 +159,7 @@ async function getRoute(end) {
     // an arbitrary start will always be the same
     // only the end or destination will change
     const query = await fetch(
-        `https://api.mapbox.com/directions/v5/mapbox/cycling/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
+        `https://api.mapbox.com/directions/v5/mapbox/driving/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
         { method: 'GET' }
     );
     const json = await query.json();
@@ -189,17 +199,19 @@ async function getRoute(end) {
     }
     // get the sidebar and add the info
     const info = document.getElementById('info');
-    const steps = data.legs[0].steps;
-    info.innerHTML = `<p><strong>Trip duration: ${Math.floor(
+    let responder = '<img id="truck" src="./assets/truck.png" alt="truck" /><br><br>  <h2>Responding:</h2><strong>\n\nTruck 81</strong><br><sub>Social Credit: 2200</sub>';
+    info.innerHTML = `<img id="siren" src="./assets/siren.png" alt="siren" /><br><br> <h2>Help is coming</h2><sub>Time</sub><br><strong>${Math.floor(
         data.duration / 60
-    )} min`;
+    )} minutes </strong> <br> <sub> Distance </sub><br> <strong>${Math.floor(data.distance / 10) / 100} km </strong> <br><br><br><br><br>` + responder;
     info.style.display = 'block';
+
+
 }
 
 function directions() {
     // make an initial directions request that
     // starts and ends at the same location
-    
+
     getRoute(start);
 
     // Add starting point to the map
