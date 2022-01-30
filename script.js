@@ -46,7 +46,7 @@ function call911(e) {
     setTimeout(function () {
         loading.style.display = 'none';
         getRoute([-79.386871, 43.659225]);
-    }, 30000);
+    }, 10000);
 }
 
 
