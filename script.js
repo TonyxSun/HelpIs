@@ -8,7 +8,7 @@ mainButton.addEventListener('click', call911);
 friendButton.addEventListener('click', call911);
 
 mainButton.addEventListener('mouseover', showMenu);
-menudiv.addEventListener('mouseout', hideMenu);
+menudiv.addEventListener('mouseleave', hideMenu);
 function showMenu() {
     menudiv.style.display = "block";
 }
