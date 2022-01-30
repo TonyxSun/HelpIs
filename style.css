@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
 
 body {
   margin: 0;
@@ -24,7 +24,7 @@ body {
 }
 
 .mapboxgl-popup-content {
-  font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+  font: 400 15px/22px "Source Sans Pro", "Helvetica Neue", Sans-serif;
   padding: 0;
   width: 250px;
 }
@@ -55,133 +55,140 @@ body {
   cursor: pointer;
 }
 
-.mapboxgl-popup-anchor-top>.mapboxgl-popup-content {
+.mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
   margin-top: 3px;
 }
 
-.mapboxgl-popup-anchor-top>.mapboxgl-popup-tip {
+.mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
   border-bottom-color: rgb(61, 59, 59);
 }
 
 #info {
-    position: absolute;
-    display: none;
-    margin: 20px;
-    width: 25%;
-    height:fit-content;
-    top: 0;
-    bottom: 20%;
-    padding: 50px 30px;
-    background-color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    z-index: 12;
-    border-radius: 2rem;
-  }
+  position: absolute;
+  display: none;
+  margin: 20px;
+  width: 25%;
+  height: fit-content;
+  top: 0;
+  bottom: 20%;
+  padding: 50px 30px;
+  background-color: #fff;
+  font-family: "Montserrat", sans-serif;
+  z-index: 12;
+  border-radius: 2rem;
+}
 
 body {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100vh;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
 }
 
 #loading {
-    position:absolute;
-    width: 100%;
-    height: 100%;
-    background-image: url('./assets/background.png');
-    opacity: 70%;
-    z-index: 13;
-    display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("./assets/background.png");
+  opacity: 70%;
+  z-index: 13;
+  display: none;
 }
 
 #logo {
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left:0;
-    right:0;
-    margin: auto;
-    height: 5rem;
-    animation-name: loadingAnimation;
-    animation-duration: 4s;
-    animation-timing-function: ease-out;
-    animation-iteration-count: infinite;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 5rem;
+  animation-name: loadingAnimation;
+  animation-duration: 4s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
 }
 
 @keyframes loadingAnimation {
-    0% {height: 5rem;}
-    50% {height: 5.5rem;}
-    100% {height: 5rem;}
+  0% {
+    height: 5rem;
+  }
+  50% {
+    height: 5.5rem;
+  }
+  100% {
+    height: 5rem;
+  }
 }
 #menudiv {
-    display: none;
-    position: absolute;
-    width: 225px;
-    height: 125px;
-    left: 0;
-	right: 0;
-    bottom: 5rem;
-    background: #003459;
-	margin-left: auto;
- 	margin-right: auto;
-    z-index: 9; 
-    border-radius: 10rem 10rem 0 0;
+  display: none;
+  position: absolute;
+  width: 225px;
+  height: 125px;
+  left: 0;
+  right: 0;
+  bottom: 5rem;
+  background: #003459;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 9;
+  border-radius: 10rem 10rem 0 0;
 }
 #menu {
-    position: absolute;
-    /* bottom: 1.5rem; */
-    height: 8rem;
-    width: 8rem;
-    left: 0;
-	right: 0;
-    bottom: 1rem;
-	margin-left: auto;
- 	margin-right: auto;
-    z-index: 12; 
-    border-radius: 4rem;
-    white-space: nowrap;
+  position: absolute;
+  /* bottom: 1.5rem; */
+  height: 8rem;
+  width: 8rem;
+  left: 0;
+  right: 0;
+  bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 12;
+  border-radius: 4rem;
+  white-space: nowrap;
 }
- #menu:hover  {
-    height: 8.2rem;
-    width: 8.2rem;
-
-} 
+#menu:hover {
+  height: 8.2rem;
+  width: 8.2rem;
+}
 
 .fa-lyft {
-    position: absolute;
-    left: 2rem;
-    top: 4rem;
-    color: white;
-    font-size: 2rem;}
+  position: absolute;
+  left: 2rem;
+  top: 4rem;
+  color: white;
+  font-size: 2rem;
+}
 
 .fa-ambulance {
-    position: absolute;
-    left: 6.2rem;
-    top: 2rem;
-    color: white;
-    font-size: 1.8rem;}
+  position: absolute;
+  left: 6.2rem;
+  top: 2rem;
+  color: white;
+  font-size: 1.8rem;
+}
 .fa-user-friends {
-    position: absolute;
-    left: 10.5rem;
-    top: 4rem;
-    color: white;
-    font-size: 1.8rem;
+  position: absolute;
+  left: 10.5rem;
+  top: 4rem;
+  color: white;
+  font-size: 1.8rem;
 }
 
 .fab:hover {
-    font-size: 2.1rem;
+  font-size: 2.1rem;
 }
 
 .fas:hover {
-    font-size: 1.9rem;
+  font-size: 1.9rem;
 }
 
 #bottom-bar {
-    position: absolute;
-    bottom: 0;
-    height: 5rem;
-    width: 100vw;
-    background-color: white;
-    z-index: 10;
+  position: absolute;
+  bottom: 0;
+  height: 5rem;
+  width: 100vw;
+  background-color: white;
+  z-index: 10;
 }
