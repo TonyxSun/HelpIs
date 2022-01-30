@@ -8,6 +8,7 @@ mainButton.addEventListener('click', call911);
 friendButton.addEventListener('click', call911);
 
 mainButton.addEventListener('mouseover', showMenu);
+mainButton.addEventListener('touchstart', showMenu);
 menudiv.addEventListener('mouseleave', hideMenu);
 function showMenu() {
     menudiv.style.display = "block";
@@ -58,7 +59,7 @@ var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mapbox/streets-v11', // style: https://docs.mapbox.com/api/maps/#styles
     center: [-76.49500, 44.22500], // starting position [lng, lat]
-    zoom: 12,// starting zoom
+    zoom: 13,// starting zoom
     // transformRequest: transformRequest
 });
 
